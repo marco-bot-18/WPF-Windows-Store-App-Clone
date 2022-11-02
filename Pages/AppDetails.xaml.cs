@@ -44,5 +44,10 @@ namespace WPF_MC.Pages
         {
             BackButtonClicked(sender, e);
         }
+
+        private void AppDetailsTitleAndBackgroundUC_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

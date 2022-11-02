@@ -23,21 +23,28 @@ namespace WPF_MC.UserControls
         public AnApp()
         {
             InitializeComponent();
+
+            //Loading and Getting the Store Apps Images 
             List<string> filepaths = Directory.GetFiles(Environment.CurrentDirectory + @"\..\..\Images", "*.png").ToList<string>();
             FileInfo myRandomFile = new FileInfo(filepaths[StaticRandom.Next(filepaths.Count)]);
             ProductImage.Source = new BitmapImage(new Uri(myRandomFile.FullName, UriKind.RelativeOrAbsolute));
+            
+            //splitting the title name of product images source directory
             AppNameText.Text = (new CultureInfo("en-US", false).TextInfo).ToTitleCase(myRandomFile.FullName.Split('\\').Last().Split('-').Last().Split('.').First());
             AppName = AppNameText.Text.ToString();
             AppImageSource = ProductImage.Source;
         }
+
         public AnApp(string inAppName, ImageSource inImageSource)
         {
             InitializeComponent();
+
             ProductImage.Source = inImageSource;
             AppNameText.Text = inAppName;
             AppName = inAppName;
             AppImageSource = inImageSource;
         }
+
         private void ProductImage_MouseUp(object sender, MouseButtonEventArgs e)
         {
             AppClicked(this, e);

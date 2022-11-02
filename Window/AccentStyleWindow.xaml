@@ -16,12 +16,6 @@
     GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
     ResizeMode="CanResizeWithGrip"
     >
-    <!--TODO: Step 1: Add window resources-->
-    <!--This code originates from punker76 from this blog post:
-    https://jkarger.de/2014/11/27/mahapps-metro-themes/
-    In order you change the app theme a total of ~200 lines
-    of code are needed. My reccomendation is to reffer to this
-    blog post and explain this code on a high level--> 
     <mah:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -35,7 +29,6 @@
         </ResourceDictionary>
     </mah:MetroWindow.Resources>
     
-    <!--TODO: Step 2: Add main grid w resources -->
     <Grid>
         <Grid.Resources>
             <Style TargetType="{x:Type Button}"
@@ -61,7 +54,6 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <!--TODO: Step 3: Add stack panel containing theme buttons-->
                 <StackPanel Grid.Row="0"
                             Orientation="Horizontal">
                     <Button Content="Dark"
@@ -76,8 +68,6 @@
                             Click="ChangeAppAccentButtonClick" />
                 </StackPanel>
 
-                <!--TODO: Step 4: Add uniform grid containing ComboBoxes -->
-                <!--GOTO: AccentStyleWindow.xaml.cs -->
                 <UniformGrid Grid.Row="2" Margin="5" Columns="2" Rows="2">
                     <TextBlock Text="Accents" Margin="0 0 2 0" VerticalAlignment="Center" />
                     <TextBlock Text="Colors" Margin="2 0 0 0" VerticalAlignment="Center" />

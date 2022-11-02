@@ -16,6 +16,9 @@ namespace WPF_MC
         public MainWindow()
         {
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             MainWindowContentPage = new Main();
             MainWindowContentPage.TopAppButtonClicked += MainWindowContentPage_TopAppButtonClicked;
             MainWindowContentPage.AppClicked += MainWindowContentPage_AppClicked;
@@ -49,6 +52,7 @@ namespace WPF_MC
             if (MainWindowFrame.NavigationService.CanGoBack)
                 MainWindowFrame.NavigationService.GoBack();
         }
+
         private void MainWindowFrame_Loaded(object sender, RoutedEventArgs e)
         {
             MainWindowFrame.Content = MainWindowContentPage;
@@ -56,7 +60,6 @@ namespace WPF_MC
 
         private void ChangeAppStyleButtonClick(object sender, RoutedEventArgs e)
         {
-            //TODO: Step 9: Add the folllowing 
             if (accentThemeTestWindow != null)
             {
                 accentThemeTestWindow.Activate();

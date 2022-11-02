@@ -31,5 +31,10 @@ namespace WPF_MC.UserControls
         {
             BackButtonClicked(sender, e);
         }
+
+        private void Btn_Install_App(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("App Successfully Installed!");
+        }
     }
 }

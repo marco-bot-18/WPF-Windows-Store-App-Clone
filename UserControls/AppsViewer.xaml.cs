@@ -25,6 +25,7 @@ namespace WPF_MC.UserControls
         public AppsViewer()
         {
             InitializeComponent();
+
             PresentedApps = new List<AnApp>();
             AppsList.ItemsSource = PresentedApps;
             for (int i = 0; i < 9; i++)
@@ -37,25 +38,38 @@ namespace WPF_MC.UserControls
 
         private void Curr_AppClicked(AnApp sender, RoutedEventArgs e)
         {
-            AppClicked(sender, e);
+            try
+            {
+                AppClicked(sender, e);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sorry. This app is not available for a while.");
+            }
+            
         }
+
         private void ScrollLeftButton_Click(object sender, RoutedEventArgs e)
         {
             int widthOfOneApp = (int)PresentedApps.First().ActualWidth + 2*(int)PresentedApps.First().Margin.Left;
             AppsScrollView.ScrollToHorizontalOffset(AppsScrollView.HorizontalOffset - 4 * widthOfOneApp);
         }
+
         private void ScrollRightButton_Click(object sender, RoutedEventArgs e)
         {
-            int widthOfOneApp = (int)PresentedApps.First().ActualWidth + 2*(int)PresentedApps.First().Margin.Left;
+            int widthOfOneApp = (int)PresentedApps.First().ActualWidth + 2 * (int)PresentedApps.First().Margin.Left;
             AppsScrollView.ScrollToHorizontalOffset(AppsScrollView.HorizontalOffset + 4 * widthOfOneApp);
         }
+
         private void AppsScrollView_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             e.Handled = true;
-            var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta);
+            
+            MouseWheelEventArgs eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta);
             eventArg.RoutedEvent = UIElement.MouseWheelEvent;
             eventArg.Source = sender;
-            var parent = ((Control)sender).Parent as UIElement;
+
+            UIElement parent = ((Control)sender).Parent as UIElement;
             parent.RaiseEvent(eventArg);
         }
     }

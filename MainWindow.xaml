@@ -9,12 +9,11 @@
     xmlns:uc="clr-namespace:WPF_MC.UserControls"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     mc:Ignorable="d"
-    Title="MainWindow" 
+    Title="Microsoft Apps Store Clone" 
     Height="800" 
     Width="1360"
     >
-    <!--TODO: Step 8: Add right window command where the launch the new window from-->
-    <!--GOTO: MainWindow.xaml.cs to write ChangeAppStyleButtonClick implementation-->
+    
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
             <Button Click="ChangeAppStyleButtonClick">

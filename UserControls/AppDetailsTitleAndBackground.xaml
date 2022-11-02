@@ -10,6 +10,7 @@
     d:DesignWidth="1200"
     Name="AppDetailsTitleAndBackgroundUserControl"
     >
+
     <Grid Name="AppViewAndBackgroundGrid"
           Height="580"
     >
@@ -33,6 +34,9 @@
                Stretch="Fill"
         />
         <Button Name="BackButton"
+                Foreground="White"
+                FontSize="15"
+                Margin="2,2,2,2"
                 Grid.Column="0"
                 Width="35"
                 Height="35"
@@ -40,7 +44,27 @@
                 Click="Back_Btn"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-        />
+        >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3399ff"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
         <Grid Name="AppWideView"  
               Grid.Row="1" 
               Grid.Column="1"
@@ -88,7 +112,7 @@
                         Margin="15"
             >
                 <Label FontSize="18" Foreground="Gray">Free+</Label>
-                <Button Background="#009cfa" Foreground="White">Get</Button>
+                <Button Background="#009cfa" Foreground="White" Click="Btn_Install_App">Get</Button>
             </StackPanel>
         </Grid>
     </Grid>
